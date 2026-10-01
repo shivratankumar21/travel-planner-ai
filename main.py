@@ -1,3 +1,4 @@
+from langchain_core.messages import HumanMessage
 from langgraph.constants import START, END
 from langgraph.graph import StateGraph
 
@@ -16,5 +17,10 @@ graph.add_edge("validate_user_information", END)
 app = graph.compile()
 
 result = app.invoke({
-    "user_message": "I want to travel from Bangalore to Goa"
+    "user_message": "I want to travel from Bangalore to Goa",
+    "messages": [
+        HumanMessage(content="I want to travel from Bangalore to Goa"),
+    ]
 })
+
+print(result["messages"][-1].content)

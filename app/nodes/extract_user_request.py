@@ -1,5 +1,8 @@
 import json
 
+from langchain_core.messages import AIMessage
+from langgraph.graph import state
+
 from app.helpers.llm_helper import get_llm_content
 from app.prompts.extract_user_response import get_prompt_content
 from app.state.user_response_state import User_Response_State
@@ -45,8 +48,17 @@ def validate_user_information(state: User_Response_State):
     if state["adults"] is None:
         list_of_missing_fields.append("adults")
 
+    if list_of_missing_fields:
+        message = (
+                "Please provide the following information: "
+                + ", ".join(list_of_missing_fields)
+        )
+    else:
+        message = "All required travel information is available."
+
     return {
-        "missing_fields": ", ".join(list_of_missing_fields)
+        "missing_fields": ", ".join(list_of_missing_fields),
+        "messages": [AIMessage(content = message)]
     }
 
 
