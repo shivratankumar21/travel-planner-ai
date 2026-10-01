@@ -19,11 +19,8 @@ def search_flight_details(state: User_Response_State):
         "access_key": aviation_stack_api_key
     }
 
-    print(f"Source : {source_city_code}, Destination : {destination_city_code}, Start Date: {start_date}")
-
     response = requests.get(aviation_stack_api_url, params=params)
-    print(response.status_code)
-    print(response.text)
+
     if response.status_code == 200:
         data = response.json()
         flight_details = data.get("data",[])
