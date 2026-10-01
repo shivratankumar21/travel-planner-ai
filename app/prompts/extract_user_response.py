@@ -51,8 +51,8 @@ def get_prompt_content(user_message):
     
     source = "Bangalore"
     destination = "Goa"
-    start_date = "10 October"
-    end_date = "14 October"
+    start_date = "2026-10-10"
+    end_date = "2026-10-14"
     adults = 2
     children = null
     travel_mode = "flight"

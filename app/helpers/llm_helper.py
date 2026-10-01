@@ -3,16 +3,17 @@ import os
 from dotenv import load_dotenv
 from langchain_anthropic import ChatAnthropic
 
+from app.config import get_anthropic_api_key, get_anthropic_model_name
+
 load_dotenv(verbose=True)
 
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
-ANTHROPIC_MODEL_NAME = os.getenv("ANTHROPIC_MODEL_NAME")
+
 
 def get_llm():
     try:
         llm = ChatAnthropic(
-            api_key=ANTHROPIC_API_KEY,
-            model_name=ANTHROPIC_MODEL_NAME)
+            api_key=get_anthropic_api_key(),
+            model_name=get_anthropic_model_name())
         return { "chat_model": llm, "is_success": True }
     except Exception as e:
         return { "error_message": e.message, "is_success": False }

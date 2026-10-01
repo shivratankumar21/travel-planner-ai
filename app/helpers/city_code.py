@@ -1,0 +1,40 @@
+city_name_with_code = {
+  "Bangalore": "BLR",
+  "Mumbai": "BOM",
+  "Bombay": "BOM",
+  "Delhi": "DEL",
+  "Hyderabad": "HYD",
+  "Chennai": "MAA",
+  "Kolkata": "CCU",
+  "Pune": "PNQ",
+  "Goa": "GOI",
+  "Ahmedabad": "AMD",
+  "Kochi": "COK",
+  "Jaipur": "JAI",
+  "Lucknow": "LKO",
+  "Bhubaneswar": "BBI",
+  "Guwahati": "GAU",
+  "Chandigarh": "IXC",
+  "Indore": "IDR",
+  "Nagpur": "NAG",
+  "Patna": "PAT",
+  "Varanasi": "VNS",
+  "Ranchi": "IXR",
+  "Srinagar": "SXR",
+  "Amritsar": "ATQ",
+  "Coimbatore": "CJB",
+  "Mangalore": "IXE",
+  "Thiruvananthapuram": "TRV",
+  "Visakhapatnam": "VTZ",
+  "Madurai": "IXM",
+  "Bengaluru": "BLR",
+  "New Delhi": "DEL",
+  "Brisbane": "BNE",
+  "Bundaberg": "BDB",
+  "Melbourne": "MEL",
+  "Launceston": "LST"
+}
+
+
+def get_city_code_by_name(city_name: str):
+    return city_name_with_code[city_name]
