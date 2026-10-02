@@ -16,3 +16,6 @@ def get_anthropic_api_key():
 def get_anthropic_model_name():
     return os.getenv("ANTHROPIC_MODEL_NAME")
 
+def get_tavily_api_key():
+    return os.getenv("TAVILY_API_KEY")
+
