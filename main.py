@@ -4,6 +4,7 @@ from langgraph.graph import StateGraph
 
 from app.agents.flight_agent import flight_agent
 from app.agents.hotel_agent import search_hotel_details
+from app.agents.weather_agent import get_weather_agent
 from app.nodes.extract_user_request import get_extract_user_information, validate_user_information
 from app.state.user_response_state import User_Response_State
 
@@ -12,14 +13,16 @@ graph.add_node("get_extract_user_information", get_extract_user_information)
 graph.add_node("validate_user_information", validate_user_information)
 graph.add_node("flight_agent", flight_agent)
 graph.add_node("hotel_agent", search_hotel_details)
+graph.add_node("weather_agent", get_weather_agent)
 
 
 graph.add_edge(START, "get_extract_user_information")
 graph.add_edge("get_extract_user_information", "validate_user_information")
 graph.add_edge("validate_user_information", "flight_agent")
 graph.add_edge("flight_agent", "hotel_agent")
+graph.add_edge("hotel_agent", "weather_agent")
 
-graph.add_edge("hotel_agent", END)
+graph.add_edge("weather_agent", END)
 
 app = graph.compile()
 
