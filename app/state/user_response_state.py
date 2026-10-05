@@ -1,3 +1,4 @@
+import operator
 from typing import TypedDict, Annotated, Optional, Any
 
 from langchain_core.messages import AnyMessage
@@ -24,6 +25,7 @@ class User_Response_State(TypedDict):
     missing_fields: Optional[str]
     budget: Optional[float]
     llm_call_counter : Optional[int]
+    selected_agents: Annotated[list[str], operator.add]
 
 
 
